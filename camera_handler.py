@@ -3,10 +3,14 @@ import time
 from datetime import timedelta
 import constant
 import firebase_setup
+from firebase_admin import firestore
 
 camera = PiCamera()
+db = firestore.client()
 collection = firebase_setup.db.collection(constant.COLLECTION_NAME)
 doc_camera_ref = collection.document(constant.CAMERA_DATA)
+doc_camera_ref.update({u'url':None})
+doc_camera_ref.update({u'timestamp':None})
 
 def capture(name):
     camera.capture(name)
