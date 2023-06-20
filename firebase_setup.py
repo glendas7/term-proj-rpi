@@ -1,7 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, firestore, storage
 
-## privateKey must be from your Firebase project
 cred = credentials.Certificate("./serviceAccountKey.json")
 
 ## change storageBucket according to your Firebase project
